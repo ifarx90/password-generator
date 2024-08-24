@@ -19,11 +19,8 @@ return generator
 const getPassword = () => {
 const newPassword = generatePassword(passwordLength.value);
 password.value = newPassword;
-setTimeout(() => {
-    alert('password has been generated!');
-}, 1000)
 }
- 
+
 const savePassword = () => {
 document.tittle = password.value
 saveButton.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`password saya: ${document.tittle}`))
