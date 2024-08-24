@@ -14,9 +14,9 @@
                 <label for="passwordLength" class="text-uppercase fw-bold">panjang password</label>
                 <input class="form-control form-control-lg" id="passwordLength" type="number" />
                 <label for="password" class="text-uppercase fw-bold">password</label>
-                <input class="form-control form-control-lg" id="password" type="password" />
+                <input class="form-control form-control-lg" id="password" disabled/>
                 <button class="btn btn-dark text-uppercase fw-bold btn-lg mt-2" onclick="getPassword()">generate password</button>
-                <button class="btn btn-primary text-uppercase fw-bold btn-lg mt-2" onclick="savePassword()">save password</button>
+                <a class="btn btn-primary text-uppercase fw-bold btn-lg mt-2" id="saveButton" onclick="savePassword()">save password</a>
             </div>
         </div>
     </div>

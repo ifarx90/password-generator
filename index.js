@@ -1,20 +1,34 @@
 let passwordLength = document.getElementById("passwordLength");
 let password = document.getElementById("password");
+let saveButton = document.getElementById('saveButton');
 
-function getPassword(){
+const generatePassword =(len) => {
  const lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"
  const upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
  const numeric = "0123456789"
- const symbol = "!@#$%^&*()-_=+[]{}\|;:'/?.>,<~`"
+ const symbol = "!@#$%^&*-_=+'~`"
 
  const data = lowerAlphabet + upperAlphabet + numeric + symbol
  let generator = "";
- for (let index = 0; index < 10; index++) {
-    generator += data[Math.floor(Math.random() * data.length)];
+ for (let index = 0; index < len; index++) {
+    generator += data[~~(Math.random() * data.length)];
 }
-console.log('generator:',generator);
+return generator
+}
+
+const getPassword = () => {
+const newPassword = generatePassword(passwordLength.value);
+password.value = newPassword;
+setTimeout(() => {
+    alert('password has been generated!');
+}, 1000)
 }
  
-function savePassword(){
-
+const savePassword = () => {
+document.tittle = password.value
+saveButton.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`password saya: ${document.tittle}`))
+saveButton.setAttribute('download', 'MyPasswordGeneratorLOG.txt')
+setTimeout(() => {
+    alert('berhasil di simpan!')
+}, 1000)
 }
